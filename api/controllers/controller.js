@@ -35,7 +35,7 @@ exports.update_a_name = function (req, res) {
 };
 
 exports.delete_a_name = function (req, res) {
-  Name.remove(
+  Name.deleteOne(
     {
       _id: req.params.nameId,
     },

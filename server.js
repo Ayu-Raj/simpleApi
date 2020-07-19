@@ -7,10 +7,12 @@ var express = require("express"),
 const apis = require("./api/routes/routes");
 mongoose.Promise = global.Promise;
 mongoose
-  .connect("mongodb://localhost/Namedb", { useNewUrlParser: true })
+  .connect("mongodb://localhost/Namedb", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => console.log("Mongdb connected"))
   .catch((err) => console.log("Error"));
-mongoose.set("useUnifiedTopology", true);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
